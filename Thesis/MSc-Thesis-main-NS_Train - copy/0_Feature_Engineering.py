@@ -1,11 +1,11 @@
 import pandas as pd
 import sys
 
-sys.path.append('/Users/merelkamper/Documents/MSc Data Science/Thesis/MSc_thesis_code/src')
+sys.path.append('/Users/brake/OneDrive/Documenten/GitHub/Thesis/Thesis/MSc-Thesis-main-NS_Train - copy/src')
 from feature_extractor import calculate_features
 
 # Load the dataset
-data_path = '/Users/merelkamper/Documents/MSc Data Science/Thesis/MSc_thesis_code/data/monthly_trajectories.csv'
+data_path = '/Users/brake/OneDrive/Documenten/GitHub/Thesis/Thesis/MSc-Thesis-main-NS_Train - copy/definitive_data/monthly_trajectories.csv'
 data = pd.read_csv(data_path)
 
 # Convert YearMonth column to datetime format
@@ -23,7 +23,7 @@ features_df = pd.merge(
 )
 
 # Save the resulting features to a CSV file
-output_path = '/Users/merelkamper/Documents/MSc Data Science/Thesis/MSc_thesis_code/features/monthly_features_per_trajectory.csv'
+output_path = '/Users/brake/OneDrive/Documenten/GitHub/Thesis/Thesis/MSc-Thesis-main-NS_Train - copy/monthly_features_per_trajectory.csv'
 features_df.to_csv(output_path, index=False)
 #features_df.isna().sum()
 
