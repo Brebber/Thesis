@@ -17,7 +17,7 @@ from sklearn.metrics import balanced_accuracy_score, f1_score, roc_auc_score
 logging.basicConfig(level=logging.INFO)
 
 # Load data
-data_path = '/Users/merelkamper/Documents/MSc Data Science/Thesis/MSc_thesis_code/features/monthly_features_per_trajectory.csv'
+data_path = '/Users/brake/OneDrive/Documenten/GitHub/Thesis/Thesis/MSc-Thesis-main-NS_Train - copy/definitive_data/monthly_features_per_trajectory.csv'
 data = pd.read_csv(data_path)
 
 # Time-based split function to ensure each month has data in both sets
@@ -138,7 +138,7 @@ def simultaneous_test(df_train, df_test, features, classifier, param_grid=None, 
 
     print(f"{name} - Balanced Accuracy: {balanced_accuracy:.4f}, F1 Score: {f1:.4f}, AUC: {auc:.4f}")
 
-    res_df_test.to_csv(f'/Users/merelkamper/Documents/MSc Data Science/Thesis/MSc_thesis_code/results_classifiers/{name}_results.csv', index=False)
+    res_df_test.to_csv(f'/Users/brake/OneDrive/Documenten/GitHub/Thesis/Thesis/MSc-Thesis-main-NS_Train - copy/results_classifiers/{name}_results.csv', index=False)
     return res_df_test, all_y_true, all_y_pred, all_y_proba
 
 # Define Non-Simultaneous Testing Function
@@ -170,7 +170,7 @@ def nonsimultaneous_test(df_train, df_test, features, classifier, param_grid=Non
             results.append((train_period, test_period, y_test.tolist(), y_pred.tolist(), y_proba.tolist() if y_proba is not None else []))
 
     results_df = pd.DataFrame(results, columns=['TrainPeriod', 'TestPeriod', 'TrueLabels', 'Predictions', 'Probabilities'])
-    results_df.to_csv(f'/Users/merelkamper/Documents/MSc Data Science/Thesis/MSc_thesis_code/results_classifiers/{name}_nonsimultaneous_results.csv', index=False)
+    results_df.to_csv(f'/Users/brake/OneDrive/Documenten/GitHub/Thesis/Thesis/MSc-Thesis-main-NS_Train - copy/results_classifiers/{name}_nonsimultaneous_results.csv', index=False)
 
     all_y_true = [label for result in results for label in result[2]]
     all_y_pred = [pred for result in results for pred in result[3]]
